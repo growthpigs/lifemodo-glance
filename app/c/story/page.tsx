@@ -2,45 +2,38 @@
 
 import { useState } from 'react'
 
-const RECENT_STORIES = [
-  {
-    id: 1,
-    title: 'The Lisbon trip',
-    date: '12 Mar 2026',
-    duration: '3:42',
-    preview: 'That morning we found the hidden pastel de nata shop behind the tram stop…',
-  },
-  {
-    id: 2,
-    title: 'Sunday dinner',
-    date: '8 Mar 2026',
-    duration: '2:15',
-    preview: 'Everyone argued about the wine but agreed on the lamb…',
-  },
-  {
-    id: 3,
-    title: 'First day with the new car',
-    date: '1 Mar 2026',
-    duration: '1:58',
-    preview: 'The sat-nav kept saying turn right into the sea…',
-  },
-]
+const OBJECT = {
+  name: 'The Watcher',
+  acquired: 'Hoi An, Vietnam — 2011',
+  material: 'Lacquered teak wood',
+  artist: 'Unknown carver, Old Quarter market',
+  story: `We found it on a Tuesday morning in the Old Quarter, in a stall that was barely wider than a doorway. The carver was maybe seventy. He didn't speak French or English. He held it up to the light and said one word — "guardian."
+
+We were on our first long trip together. We had just decided, the night before over rice wine, that we were going to build something together. We bought it for three hundred thousand dong and carried it in hand luggage all the way home.
+
+It has been on the same shelf for fifteen years.`,
+  memories: [
+    { date: 'Mar 2026', text: 'Showed it to the kids for the first time. They named it "Monsieur Bois."' },
+    { date: 'Jun 2024', text: 'Karim recorded the full story of the Vietnam trip. 12 minutes. Filed.' },
+    { date: 'Jan 2023', text: 'Moved to the study after the renovation. First object placed.' },
+  ]
+}
 
 export default function StoryPage() {
   const [recording, setRecording] = useState(false)
-  const [playing, setPlaying] = useState<number | null>(null)
   const [recordSeconds, setRecordSeconds] = useState(0)
-  const [recordIntervalId, setRecordIntervalId] = useState<ReturnType<typeof setInterval> | null>(null)
+  const [intervalId, setIntervalId] = useState<ReturnType<typeof setInterval> | null>(null)
+  const [expanded, setExpanded] = useState(false)
 
   function toggleRecord() {
     if (recording) {
-      if (recordIntervalId) clearInterval(recordIntervalId)
+      if (intervalId) clearInterval(intervalId)
       setRecording(false)
       setRecordSeconds(0)
     } else {
       setRecording(true)
-      const id = setInterval(() => setRecordSeconds((s) => s + 1), 1000)
-      setRecordIntervalId(id)
+      const id = setInterval(() => setRecordSeconds(s => s + 1), 1000)
+      setIntervalId(id)
     }
   }
 
@@ -50,91 +43,101 @@ export default function StoryPage() {
   return (
     <main className="min-h-screen bg-[#0A0A0A] flex flex-col">
       <div className="circles-bg" />
-
       <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-5">
+
         {/* Header */}
         <div className="flex items-center justify-between py-4">
           <div>
             <span className="text-white font-bold text-lg">Life</span>
             <span className="text-[#C9A84C] font-bold text-lg">Modo</span>
           </div>
-          <span className="text-[#888888] text-xs glass-card px-3 py-1 rounded-full">
-            🎙️ Stories
-          </span>
+          <span className="text-[#555555] text-xs glass-card px-3 py-1 rounded-full tracking-wide">STORY CIRCLE</span>
         </div>
 
-        <h1 className="text-xl font-semibold text-white mb-1 mt-2">Story Circle</h1>
-        <p className="text-[#888888] text-sm mb-6">Capture moments in your own voice.</p>
+        {/* Object identity */}
+        <div className="mt-6 mb-6">
+          <p className="text-[#555555] text-xs uppercase tracking-widest mb-1">Object Memory</p>
+          <h1 className="text-4xl font-bold text-white leading-tight">{OBJECT.name}</h1>
+          <p className="text-[#C9A84C] text-sm mt-2">{OBJECT.acquired}</p>
+        </div>
 
-        {/* Record button — centrepiece */}
-        <div className="flex flex-col items-center mb-8">
-          <button
-            onClick={toggleRecord}
-            className={`w-24 h-24 rounded-full flex items-center justify-center text-4xl border-4 transition-all duration-300 active:scale-95 ${
-              recording
-                ? 'bg-red-500/20 border-red-500 shadow-[0_0_30px_rgba(239,68,68,0.3)] animate-pulse'
-                : 'bg-[#C9A84C]/10 border-[#C9A84C]/50 hover:bg-[#C9A84C]/20'
-            }`}
-          >
-            {recording ? '⏹' : '🎤'}
-          </button>
-          {recording ? (
-            <div className="mt-3 text-center">
-              <p className="text-red-400 font-semibold text-sm">Recording…</p>
-              <p className="text-[#888888] text-lg font-mono mt-1">{formatSecs(recordSeconds)}</p>
+        {/* Object image placeholder — replace with real photo */}
+        <div className="glass-card rounded-2xl mb-6 overflow-hidden" style={{ aspectRatio: '4/3' }}>
+          <div className="w-full h-full bg-[#0D0D0D] flex flex-col items-center justify-center border border-[#1A1A1A] rounded-2xl">
+            {/* Stylized statue silhouette */}
+            <svg viewBox="0 0 120 160" width="96" height="128" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="30" rx="18" ry="18" fill="#1A1A1A" stroke="#C9A84C" strokeWidth="1"/>
+              <rect x="38" y="48" width="44" height="60" rx="8" fill="#1A1A1A" stroke="#C9A84C" strokeWidth="1"/>
+              <rect x="20" y="55" width="20" height="8" rx="4" fill="#1A1A1A" stroke="#C9A84C" strokeWidth="1" transform="rotate(-10 20 55)"/>
+              <rect x="80" y="55" width="20" height="8" rx="4" fill="#1A1A1A" stroke="#C9A84C" strokeWidth="1" transform="rotate(10 80 55)"/>
+              <rect x="42" y="108" width="14" height="40" rx="4" fill="#1A1A1A" stroke="#C9A84C" strokeWidth="1"/>
+              <rect x="64" y="108" width="14" height="40" rx="4" fill="#1A1A1A" stroke="#C9A84C" strokeWidth="1"/>
+            </svg>
+            <p className="text-[#333333] text-xs mt-4 tracking-widest uppercase">Tap to view photo</p>
+          </div>
+        </div>
+
+        {/* Object provenance */}
+        <div className="glass-card rounded-2xl p-5 mb-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <p className="text-[#555555] text-xs uppercase tracking-widest mb-1">Material</p>
+              <p className="text-white text-sm font-medium">{OBJECT.material}</p>
             </div>
-          ) : (
-            <p className="text-[#888888] text-sm mt-3">Tap to record a story</p>
-          )}
+            <div>
+              <p className="text-[#555555] text-xs uppercase tracking-widest mb-1">Origin</p>
+              <p className="text-white text-sm font-medium">{OBJECT.artist}</p>
+            </div>
+          </div>
         </div>
 
-        {/* Playback area — recent stories */}
-        <p className="text-[#888888] text-xs uppercase tracking-widest mb-3">Recent stories</p>
-        <div className="flex flex-col gap-3">
-          {RECENT_STORIES.map((story) => (
-            <div key={story.id} className="glass-card rounded-2xl p-4">
-              <div className="flex items-start justify-between mb-1">
-                <div className="flex-1 pr-3">
-                  <p className="text-white font-semibold text-sm">{story.title}</p>
-                  <p className="text-[#888888] text-xs mt-0.5">
-                    {story.date} · {story.duration}
-                  </p>
-                </div>
-                <button
-                  onClick={() => setPlaying(playing === story.id ? null : story.id)}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
-                    playing === story.id
-                      ? 'bg-[#C9A84C] text-[#0A0A0A]'
-                      : 'bg-[#1A1A1A] text-[#C9A84C]'
-                  }`}
-                >
-                  {playing === story.id ? '⏸' : '▶'}
-                </button>
-              </div>
+        {/* The story */}
+        <div className="glass-card rounded-2xl p-5 mb-4 border-l-2 border-[#C9A84C]">
+          <p className="text-[#555555] text-xs uppercase tracking-widest mb-3">The Story</p>
+          <p className="text-white text-sm leading-relaxed">
+            {expanded ? OBJECT.story : OBJECT.story.slice(0, 180) + '…'}
+          </p>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="text-[#C9A84C] text-xs mt-3 tracking-wide uppercase"
+          >
+            {expanded ? 'Show less' : 'Read full story'}
+          </button>
+        </div>
 
-              {playing === story.id ? (
-                <div className="mt-2">
-                  {/* Fake waveform */}
-                  <div className="flex items-center gap-0.5 h-8">
-                    {Array.from({ length: 40 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 bg-[#C9A84C] rounded-full opacity-70"
-                        style={{ height: `${20 + Math.sin(i * 0.8) * 14 + Math.random() * 10}%` }}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex justify-between text-xs text-[#888888] mt-1">
-                    <span>0:00</span>
-                    <span>{story.duration}</span>
-                  </div>
-                </div>
-              ) : (
-                <p className="text-[#888888] text-xs mt-1 italic">"{story.preview}"</p>
-              )}
+        {/* Memory log */}
+        <p className="text-[#555555] text-xs uppercase tracking-widest mb-3">Memory Log</p>
+        <div className="flex flex-col gap-2 mb-6">
+          {OBJECT.memories.map((m, i) => (
+            <div key={i} className="glass-card rounded-xl p-4 flex gap-4">
+              <p className="text-[#C9A84C] text-xs font-semibold min-w-[52px]">{m.date}</p>
+              <p className="text-[#888888] text-sm leading-snug">{m.text}</p>
             </div>
           ))}
         </div>
+
+        {/* Record new memory */}
+        <div className="flex items-center gap-4 mb-10">
+          <button
+            onClick={toggleRecord}
+            className={`w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 transition-all active:scale-95 text-xl ${
+              recording
+                ? 'bg-red-500/20 border-2 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.3)]'
+                : 'bg-[#C9A84C]/10 border-2 border-[#C9A84C]/40 text-[#C9A84C]'
+            }`}
+          >
+            {recording ? '■' : '●'}
+          </button>
+          <div>
+            <p className="text-white text-sm font-medium">
+              {recording ? `Recording · ${formatSecs(recordSeconds)}` : 'Add a Memory'}
+            </p>
+            <p className="text-[#555555] text-xs mt-0.5">
+              {recording ? 'Tap to stop and save' : 'Your voice, transcribed and indexed forever'}
+            </p>
+          </div>
+        </div>
+
       </div>
     </main>
   )

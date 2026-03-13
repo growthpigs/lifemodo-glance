@@ -73,9 +73,7 @@ export default function WinePage() {
             <span className="text-white font-bold text-lg">Life</span>
             <span className="text-[#C9A84C] font-bold text-lg">Modo</span>
           </div>
-          <span className="text-[#888888] text-xs glass-card px-3 py-1 rounded-full">
-            🍷 Wine Circle
-          </span>
+          <span className="text-[#555555] text-xs glass-card px-3 py-1 rounded-full tracking-wide">WINE CIRCLE</span>
         </div>
 
         <h1 className="text-xl font-semibold text-white mb-1 mt-2">Booze Nag</h1>
