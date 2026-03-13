@@ -12,7 +12,11 @@ function getSleepCorrelation(wineToday: number, sleep: number) {
 
 function GlassIcon({ filled }: { filled: boolean }) {
   return (
-    <span className={`text-3xl ${filled ? 'text-[#C9A84C]' : 'text-[#1A1A1A]'}`}>🍷</span>
+    <svg viewBox="0 0 24 36" width="28" height="42" fill="none">
+      <path d="M4 2 Q4 14 12 20 Q20 14 20 2Z" fill={filled ? '#C9A84C' : '#1A1A1A'} stroke={filled ? '#C9A84C' : '#333'} strokeWidth="1"/>
+      <line x1="12" y1="20" x2="12" y2="30" stroke={filled ? '#C9A84C' : '#333'} strokeWidth="1.5"/>
+      <line x1="7" y1="30" x2="17" y2="30" stroke={filled ? '#C9A84C' : '#333'} strokeWidth="1.5"/>
+    </svg>
   )
 }
 
