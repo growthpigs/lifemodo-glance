@@ -39,7 +39,7 @@ export default function FobAPage() {
   const actions = [
     { icon: '☀️', label: 'Morning Brief', variant: 'default' as const },
     { icon: '🎤', label: 'Voice Note', variant: 'default' as const },
-    { icon: '📞', label: 'Call Coach', variant: 'gold' as const, href: 'tel:+33677009532' },
+    { icon: '📞', label: 'Call Coach', variant: 'gold' as const, href: 'tel:+33775854958' },
     { icon: '📋', label: 'Today', variant: 'default' as const },
   ]
 
