@@ -61,18 +61,12 @@ export default function StoryPage() {
           <p className="text-[#C9A84C] text-sm mt-2">{OBJECT.acquired}</p>
         </div>
 
-        {/* Object image placeholder — replace src with real photo */}
-        <div className="glass-card rounded-2xl mb-6 overflow-hidden flex flex-col items-center justify-center py-10 gap-5">
-          <svg viewBox="0 0 120 160" width="80" height="108" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="60" cy="28" rx="16" ry="16" fill="#161616" stroke="#C9A84C" strokeWidth="1.5"/>
-            <path d="M42 52 Q40 64 40 108 L80 108 Q80 64 78 52 Q60 44 42 52Z" fill="#161616" stroke="#C9A84C" strokeWidth="1.5"/>
-            <path d="M42 62 Q30 70 24 76 Q28 80 34 76 Q38 72 42 72" fill="#161616" stroke="#C9A84C" strokeWidth="1.5"/>
-            <path d="M78 62 Q90 70 96 76 Q92 80 86 76 Q82 72 78 72" fill="#161616" stroke="#C9A84C" strokeWidth="1.5"/>
-            <rect x="44" y="108" width="14" height="36" rx="5" fill="#161616" stroke="#C9A84C" strokeWidth="1.5"/>
-            <rect x="62" y="108" width="14" height="36" rx="5" fill="#161616" stroke="#C9A84C" strokeWidth="1.5"/>
-            <line x1="44" y1="80" x2="76" y2="80" stroke="#C9A84C" strokeWidth="0.75" strokeDasharray="3 3"/>
-          </svg>
-          <p className="text-[#444444] text-xs tracking-widest uppercase">Swap with real photo</p>
+        {/* Object image - The Souvenir */}
+        <div className="glass-card rounded-2xl mb-6 overflow-hidden">
+          <img src="/statue.heic" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" alt="The Watcher Souvenir" />
+          <div className="p-3 bg-black/40 backdrop-blur-sm">
+             <p className="text-[#888888] text-[10px] uppercase tracking-widest">Physical Asset: Souvenir Replica</p>
+          </div>
         </div>
 
         {/* Object provenance */}
@@ -103,8 +97,22 @@ export default function StoryPage() {
           </button>
         </div>
 
+        {/* Museum Wikipedia Reference */}
+        <div className="glass-card rounded-2xl mb-8 overflow-hidden bg-[#0F0F0F] border-[#1A1A1A]">
+           <div className="p-4 border-b border-[#1A1A1A]">
+              <p className="text-[#C9A84C] text-[10px] font-bold uppercase tracking-widest">Historical Context — Wikipedia Entry</p>
+              <h3 className="text-white font-serif text-lg mt-1">The Guardian of Hue</h3>
+           </div>
+           <img src="/museum.png" className="w-full h-auto border-b border-[#1A1A1A]" alt="Museum Original" />
+           <div className="p-4">
+              <p className="text-[#888888] text-xs leading-relaxed italic">
+                 "This life-size teak carving (c. 1824) was recovered from the Imperial City of Hue. It represents the transition from the physical to the spiritual world. Replicas are rare, with the only known souvenir series commissioned by the carver association in 2011."
+              </p>
+           </div>
+        </div>
+
         {/* Memory log */}
-        <p className="text-[#555555] text-xs uppercase tracking-widest mb-3">Memory Log</p>
+        <p className="text-[#555555] text-xs uppercase tracking-widest mb-3">Family Memory Log</p>
         <div className="flex flex-col gap-2 mb-6">
           {OBJECT.memories.map((m, i) => (
             <div key={i} className="glass-card rounded-xl p-4 flex gap-4">
