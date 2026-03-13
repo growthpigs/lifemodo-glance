@@ -6,7 +6,7 @@ export default function AlarmPage() {
   return (
     <main className="min-h-screen bg-[#0A0A0A] flex flex-col">
       <div className="circles-bg" />
-      <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-5">
+      <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-3">
         <div className="flex items-center justify-between py-4">
           <div>
             <span className="text-white font-bold text-lg">Life</span>

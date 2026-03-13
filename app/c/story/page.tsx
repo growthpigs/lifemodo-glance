@@ -43,15 +43,15 @@ export default function StoryPage() {
   return (
     <main className="min-h-screen bg-[#0A0A0A] flex flex-col">
       <div className="circles-bg" />
-      <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-5">
+      <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-3">
 
         {/* No logo — content starts immediately */}
-        <div className="pt-2" />
+        <div className="pt-0" />
 
         {/* Object identity */}
         <div className="mt-4 mb-6">
           <p className="text-[#999999] text-xs uppercase tracking-widest mb-1">Object Memory</p>
-          <h1 className="text-xl font-semibold text-white leading-tight">{OBJECT.name}</h1>
+          <h1 className="text-2xl font-semibold text-white leading-tight">{OBJECT.name}</h1>
           <p className="text-[#C9A84C] text-sm mt-1">{OBJECT.acquired}</p>
         </div>
 

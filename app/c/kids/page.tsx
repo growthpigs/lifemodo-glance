@@ -56,7 +56,7 @@ export default function KidsPage() {
   return (
     <main className="min-h-screen bg-[#0A0A0A] flex flex-col">
       <div className="circles-bg" />
-      <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-5">
+      <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-3">
 
         {/* Header */}
         <div className="flex items-center justify-between py-4">
@@ -101,7 +101,7 @@ export default function KidsPage() {
 
               {/* Playback bar — only visible when playing */}
               {playing === story.id && (
-                <div className="border-t border-[#1A1A1A] px-5 py-4">
+                <div className="border-t border-[#1A1A1A] px-3 py-4">
                   {/* Waveform */}
                   <div className="flex items-center gap-[2px] h-8 mb-3">
                     {Array.from({ length: 50 }).map((_, i) => (
