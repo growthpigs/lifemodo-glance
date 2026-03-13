@@ -16,7 +16,7 @@ export default function AlarmPage() {
         </div>
 
         <div className="mt-8">
-          <h1 className="text-3xl font-bold text-white">Bonjour, Jean-Marc.</h1>
+          <h1 className="text-3xl font-bold text-white">Bonjour, Karim.</h1>
           <p className="text-[#888888] mt-2">Your day is prepped and ready.</p>
         </div>
 

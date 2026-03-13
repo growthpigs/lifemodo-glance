@@ -62,7 +62,7 @@ export default function FobAPage() {
         {/* Greeting */}
         <div className="mt-4 mb-6">
           <h1 className="text-2xl font-semibold text-white">
-            {getGreeting()}, Roderic.
+            {getGreeting()}, Karim.
           </h1>
           {loaded && (
             <p className="text-[#888888] text-xs mt-1">
