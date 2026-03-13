@@ -45,20 +45,14 @@ export default function StoryPage() {
       <div className="circles-bg" />
       <div className="relative z-10 flex flex-col min-h-screen safe-top safe-bottom px-5">
 
-        {/* Header */}
-        <div className="flex items-center justify-between py-4">
-          <div>
-            <span className="text-white font-bold text-lg">Life</span>
-            <span className="text-[#C9A84C] font-bold text-lg">Modo</span>
-          </div>
-          <span className="text-[#555555] text-xs glass-card px-3 py-1 rounded-full tracking-wide">STORY CIRCLE</span>
-        </div>
+        {/* No logo — content starts immediately */}
+        <div className="pt-2" />
 
         {/* Object identity */}
-        <div className="mt-6 mb-6">
-          <p className="text-[#555555] text-xs uppercase tracking-widest mb-1">Object Memory</p>
-          <h1 className="text-4xl font-bold text-white leading-tight">{OBJECT.name}</h1>
-          <p className="text-[#C9A84C] text-sm mt-2">{OBJECT.acquired}</p>
+        <div className="mt-4 mb-6">
+          <p className="text-[#999999] text-xs uppercase tracking-widest mb-1">Object Memory</p>
+          <h1 className="text-xl font-semibold text-white leading-tight">{OBJECT.name}</h1>
+          <p className="text-[#C9A84C] text-sm mt-1">{OBJECT.acquired}</p>
         </div>
 
         {/* Object image - The Souvenir */}

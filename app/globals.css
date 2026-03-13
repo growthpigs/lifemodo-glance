@@ -8,6 +8,10 @@
   --text-secondary: #888888;
 }
 
+html {
+  font-size: 120%; /* +20% — matches Cmd++ twice in browser */
+}
+
 html,
 body {
   background-color: #0A0A0A;
