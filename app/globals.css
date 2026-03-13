@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0A0A0A;
+  --gold: #C9A84C;
+  --text-secondary: #888888;
+}
+
+html,
+body {
+  background-color: #0A0A0A;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+/* Concentric circles background decoration */
+.circles-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.circles-bg::before,
+.circles-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 168, 76, 0.06);
+}
+
+.circles-bg::before {
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circles-bg::after {
+  width: 900px;
+  height: 900px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Safe-area padding for iPhone */
+.safe-top {
+  padding-top: max(1.5rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+}
+
+/* Glassy card */
+.glass-card {
+  background: rgba(17, 17, 17, 0.9);
+  border: 1px solid #1A1A1A;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Gold text */
+.gold-text {
+  color: #C9A84C;
+}
+
+/* Stat pill */
+.stat-pill {
+  background: #111111;
+  border: 1px solid #1A1A1A;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+/* Smooth tap highlight removal on iOS */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Scrollbar hidden */
+::-webkit-scrollbar {
+  display: none;
+}

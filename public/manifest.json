@@ -1,0 +1,51 @@
+{
+  "name": "LifeModo Glance",
+  "short_name": "LifeModo",
+  "description": "Your household health OS — quick context at a tap.",
+  "start_url": "/c/fob-a",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Health Snapshot",
+      "url": "/c/fob-a",
+      "description": "Quick health readiness view"
+    },
+    {
+      "name": "Dashboard",
+      "url": "/c/fob-b",
+      "description": "Household overview"
+    },
+    {
+      "name": "Wine Circle",
+      "url": "/c/wine",
+      "description": "Log alcohol intake"
+    },
+    {
+      "name": "Weights",
+      "url": "/c/weights",
+      "description": "Workout tracker"
+    },
+    {
+      "name": "Stories",
+      "url": "/c/story",
+      "description": "Voice memories"
+    }
+  ]
+}
