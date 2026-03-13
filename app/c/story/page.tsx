@@ -57,7 +57,7 @@ export default function StoryPage() {
 
         {/* Object image - The Souvenir */}
         <div className="glass-card rounded-2xl mb-6 overflow-hidden">
-          <img src="/statue.heic" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" alt="The Watcher Souvenir" />
+          <img src="/statue.jpg" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" alt="The Watcher Souvenir" />
           <div className="p-3 bg-black/40 backdrop-blur-sm">
              <p className="text-[#888888] text-[10px] uppercase tracking-widest">Physical Asset: Souvenir Replica</p>
           </div>
